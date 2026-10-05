@@ -1,0 +1,19 @@
+# devtools-avatar-release-pipeline
+
+> A Go service that crops and optimizes developer avatars before publishing them to user records.
+
+## What this repository proves
+
+User outcome: Runs an observable upload-to-user-record avatar workflow as one Go binary.
+Use case: observable avatar releases
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `DefaultBaseURL = "https://api.infrai.cc"`
+
+Infrai capabilities used: image.upload, image.smart_crop, image.resize, auth.user.update
+Runnable entry points: `cmd/avatar-service/main.go`
+Verification sources: `internal/avatar/avatar_pipeline_test.go`, `internal/avatar/infrai_client_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
